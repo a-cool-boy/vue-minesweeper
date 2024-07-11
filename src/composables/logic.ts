@@ -19,6 +19,7 @@ interface GameState {
   board: BlockState[][]
   mineGenerated: boolean
   status: GameStatus
+  mines: number
   startMS?: number
   endMS?: number
 }
@@ -53,6 +54,7 @@ export class GamePlay {
     this.mines = mines
 
     this.state.value = {
+      mines: this.mines,
       mineGenerated: false,
       status: 'ready',
       board: Array.from({ length: this.height }, (_, y) =>

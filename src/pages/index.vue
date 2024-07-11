@@ -12,8 +12,8 @@ const state = $computed(() => play.board)
 
 const mineRest = $computed(() => {
   if (!play.state.value.mineGenerated)
-    return play.mines
-  return play.blocks.reduce((a, b) => a - (b.flagged ? 1 : 0), play.mines)
+    return play.state.value.mines
+  return play.blocks.reduce((a, b) => a - (b.flagged ? 1 : 0), play.state.value.mines)
 })
 
 function newGame(difficulty: 'easy' | 'medium' | 'hard') {
